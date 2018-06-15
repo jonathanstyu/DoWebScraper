@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Scrape Extension</title>
+    <style src="screen.css"></style>
+  </head>
+  <body>
+    <p>Help Me Scrape</p>
+    <label for="CSSinput">CSS Selectors go here</label>
+    <input type='text' id='CSSinput' name='CSSinput' />
+    <button id='XXscrapeButton'>Scrape</button>
+    <button id='XXcloseButton'>X</button>
+    <div>
+      <div id='XXstatusDisplay'></div>
+      <table id='XXdisplayTable'>
+        <tbody>
+          <th>
+            <td>#</td>
+            <td>Object</td>
+            <td>Text</td>
+          </th>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <footer>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="actions.js"></script>
+  </footer>
+</html>
