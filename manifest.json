@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Texter",
-  "description": "Helps me set up stuff",
+  "name": "PageScraper",
+  "description": "Turn structured HTML into a CSV or a TXT file.",
   "version": "1.0.0",
 
   "browser_action": {

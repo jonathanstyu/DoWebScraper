@@ -6,25 +6,37 @@
   </head>
   <body>
     <p>Help Me Scrape</p>
-    <label for="CSSinput">CSS Selectors go here</label>
-    <input type='text' id='CSSinput' name='CSSinput' />
-    <button id='XXscrapeButton'>Scrape</button>
-    <button id='XXcloseButton'>X</button>
     <div>
-      <div id='XXstatusDisplay'></div>
-      <table id='XXdisplayTable'>
+      <label for="CSSinput">CSS Selectors go here</label>
+      <input type='text' id='CSSinput' name='CSSinput' />
+      <button id='XXscrapeButton'>Scrape</button>
+      <button id='XXcloseButton'>X</button>
+    </div>
+    <div>
+      <table id='XXdisplayTable' style="border: 1px solid white; width: 100%;">
         <tbody>
-          <th>
-            <td>#</td>
-            <td>Object</td>
-            <td>Text</td>
-          </th>
+          <tr  style="border: 1px solid white;">
+            <td>Selector</td>
+            <td id='XXselectorDisplay'></td>
+          </tr>
+          <tr>
+            <td>Results Count</td>
+            <td id='XXstatusDisplay'></td>
+          </tr>
+          <tr>
+            <td><button id='XXtxtDL'>Download TXT</button></td>
+            <td></td>
+          </tr>
+          <tr style="border: 1px solid white; width: 100%;">
+            <th>#</th>
+            <th>Text</th>
+          </tr>
         </tbody>
       </table>
     </div>
+    <div style="display:none" id="xxCurrentStorage"></div>
   </body>
   <footer>
-    <script src="./js/jquery-3.2.1.min.js"></script>
-    <script src="actions.js"></script>
+    <script src="panel_actions.js"></script>
   </footer>
 </html>

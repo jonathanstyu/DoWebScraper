@@ -12,3 +12,7 @@ body {
   overflow: hidden;
   max-width: 700px;
 }
+
+table, th, tr {
+  border: 1px solid white; 
+}
