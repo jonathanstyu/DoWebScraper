@@ -6,7 +6,6 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
   // Create the pop out web page
   var iframe = document.createElement('iframe');
   iframe.name = "customScraperiFrame";
-  iframe.style.background = "grey";
   iframe.style.height = "100%";
   iframe.style.width = "0px";
   iframe.style.position = "fixed";
@@ -20,8 +19,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
   if (message['action'] == "grab") {
     let param = message['param']; 
     let responseObject = []; 
-    // let nodeCollection = document.querySelectorAll(param); 
-    let nodeCollection = document.getElementsByTagName(param); 
+    let nodeCollection = document.querySelectorAll(param); 
 
     for (var i = 0; i < nodeCollection.length; i ++) {
       responseObject[i] = nodeCollection[i].innerHTML; 
@@ -48,8 +46,22 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 
   if (message['action'] == 'download') {
     var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(message['data']));
-    element.setAttribute('download', "file.txt");
+    
+    if (message['format'] == 'txt') {
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(message['data']));
+      element.setAttribute('download', "file.txt");
+    } 
+
+    if (message['format'] == 'csv') {  
+      let csvContent = '';
+      message['data'].forEach((rowArray, i) => {
+        let row = [i, rowArray].join(',');
+        csvContent += row + "\r\n";
+      })
+      var blobdata = new Blob([csvContent],{type : 'text/csv'});
+      element.setAttribute('href', window.URL.createObjectURL(blobdata));
+      element.setAttribute('download', "file.csv");
+    }
 
     element.style.display = 'none';
     document.body.appendChild(element);
