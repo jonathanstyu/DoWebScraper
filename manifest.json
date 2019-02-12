@@ -1,9 +1,9 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "DoWebScraper",
   "description": "Turn structured HTML into a CSV or a TXT file.",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "browser_action": {
     "default_icon": "ScraperLogo.png",
