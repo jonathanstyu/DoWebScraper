@@ -1,8 +1,11 @@
 body {
-  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-family: sans-serif;
   font-size: 90%;
+  color: white; 
   min-width: 300px;
   max-width: 700px;
+  display: flex; 
+  flex-direction: column; 
 }
 
 #status {
@@ -14,9 +17,5 @@ body {
 }
 
 .tableResults {
-  color: aqua;
-}
-
-#customScraperiFrame {
-  background-color: yellow;
+   
 }
