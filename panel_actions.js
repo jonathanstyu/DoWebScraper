@@ -35,6 +35,21 @@ closeButton.addEventListener("click", function () {
   })
 })
 
+// Clear results 
+var closeButton = document.getElementById('XXclearButton');
+closeButton.addEventListener("click", function () {
+  var tableRows = document.getElementsByClassName('tableResults'); 
+
+  document.getElementById('XXstatusDisplay').innerHTML = "";
+  document.getElementById("CSSinput").value = ""
+  document.getElementById('XXselectorDisplay').innerHTML = "";
+  document.getElementById('xxCurrentStorage').innerText = ""; 
+
+  while (tableRows.length > 0) {
+    tableRows[0].parentNode.removeChild(tableRows[0]); 
+  }
+})
+
 // Download last results text file 
 var downloadButton = document.getElementById('XXtxtDL');
 downloadButton.addEventListener("click", function () {

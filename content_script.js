@@ -6,8 +6,9 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
   // Create the pop out web page
   if (message['action'] == 'show' && document.getElementById("customScraperiFrame") == null) {
     var iframe = document.createElement('iframe');
+    var iframeHeight = document.body.offsetHeight; 
     iframe.id = "customScraperiFrame";
-    iframe.style.height = "100% !important";
+    iframe.style.height = iframeHeight+"px";
     iframe.style.width = "0px";
     iframe.style.position = "fixed";
     iframe.style.top = "0px";
@@ -32,6 +33,10 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
       "res": responseObject,
       "selector": param
     })
+  }
+
+  if (message['action'] == "clear") {
+
   }
 
   if (message['action'] == "show"){

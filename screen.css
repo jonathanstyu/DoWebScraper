@@ -7,6 +7,14 @@ body {
   flex-direction: column; 
 }
 
+.row {
+  display: flex; 
+  flex-direction: row;
+  margin: 0.5em; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
 #status {
   /* avoid an excessively wide status text */
   white-space: pre;

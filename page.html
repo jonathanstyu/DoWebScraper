@@ -5,41 +5,42 @@
     <link rel="stylesheet" href="./screen.css">
   </head>
   <body style="background: #E9F1F7;">
-    <p>Help Me Scrape</p>
-    <div>
-      <label for="CSSinput">CSS Selector</label>
-      <input type='text' id='CSSinput' name='CSSinput' placeholder="Try 'a' or 'p.thingy'" />
-      <button id='XXscrapeButton'>Scrape</button>
-      <button id='XXcloseButton'>X</button>
+    <div style="display: flex; flex-direction: column;">
+      <div class="row">
+        <h3>Help Me Scrape</h3>
+        <button id='XXcloseButton'>X</button>
+      </div>
+      <div class='row'>
+        <label for="CSSinput">CSS Selector</label>
+        <input type='text' id='CSSinput' name='CSSinput' placeholder="Try 'a' or 'p.thingy'" />
+        <button id='XXscrapeButton'>Scrape</button>
+        <button id='XXclearButton'>Clear</button>
+      </div>
+      <div class="row">
+        <span>Selector</span>
+        <span id='XXselectorDisplay'></span>
+      </div>
+      <div class="row">
+        <span>Number of Results</span>
+        <span id='XXstatusDisplay'></span>
+      </div>
+      <div class="row">
+        <button id='XXtxtDL'>Download TXT</button>
+        <button id='XXcsvDL'>Download CSV</button>
+      </div>
+      <div>
+        <table id='XXdisplayTable' style="border-collapse: collapse; width: 100%; table-layout: fixed; padding-top: 5px;">
+          <tbody id="XXdisplayTableBody">
+            <tr style="border: 1px solid white; width: 100%;">
+              <th style="width: 20%;">#</th>
+              <th>Text</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+          <!-- For bootstrapping saved data to DL for later -->
+          <div style="display:none" id="xxCurrentStorage"></div>
     </div>
-    <div>
-      <table style="border-collapse: collapse; width: 100%; table-layout: fixed;">
-        <tbody>
-          <tr>
-              <th style="width: 30%;">Selector</th>
-              <td id='XXselectorDisplay'></td>
-            </tr>
-            <tr>
-              <th># Results</th>
-              <td id='XXstatusDisplay'></td>
-            </tr>
-            <tr>
-              <td><button id='XXtxtDL'>Download TXT</button></td>
-              <td><button id='XXcsvDL'>Download CSV</button></td>
-            </tr>
-        </tbody>
-      </table>
-      <table id='XXdisplayTable' style="border-collapse: collapse; width: 100%; table-layout: fixed; padding-top: 5px;">
-        <tbody>
-          <tr style="border: 1px solid white; width: 100%;">
-            <th style="width: 20%;">#</th>
-            <th>Text</th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- For bootstrapping saved data to DL for later -->
-    <div style="display:none" id="xxCurrentStorage"></div>
   </body>
   <footer>
     <script src="panel_actions.js"></script>
