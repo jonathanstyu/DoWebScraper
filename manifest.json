@@ -3,7 +3,7 @@
 
   "name": "DoWebScraper",
   "description": "Turn structured HTML into a CSV or a TXT file.",
-  "version": "1.0.3",
+  "version": "1.0.4",
 
   "browser_action": {
     "default_icon": "ScraperLogo.png",
