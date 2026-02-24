@@ -46,9 +46,16 @@ if (!window.__doWebScraperLoaded) {
       }
 
       if (message.format === 'csv') {
+        const escapeCSV = (value) => {
+          const str = String(value);
+          if (str.includes(',') || str.includes('"') || str.includes('\n') || str.includes('\r')) {
+            return '"' + str.replace(/"/g, '""') + '"';
+          }
+          return str;
+        };
         let csvContent = '';
         message.data.forEach((rowArray, i) => {
-          csvContent += [i, rowArray].join(',') + '\r\n';
+          csvContent += [escapeCSV(i), escapeCSV(rowArray)].join(',') + '\r\n';
         });
         const blobdata = new Blob([csvContent], { type: 'text/csv' });
         element.setAttribute('href', URL.createObjectURL(blobdata));

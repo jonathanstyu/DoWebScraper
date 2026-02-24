@@ -1,12 +1,18 @@
 // Actions JS for using to scrape
 
-document.getElementById('XXscrapeButton').addEventListener('click', function() {
+function doScrape() {
   const cssSelector = document.getElementById('CSSinput').value;
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { action: 'grab', param: cssSelector }, (response) => {
       displayResults(response);
     });
   });
+}
+
+document.getElementById('XXscrapeButton').addEventListener('click', doScrape);
+
+document.getElementById('CSSinput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doScrape();
 });
 
 document.getElementById('XXcloseButton').addEventListener('click', function() {
