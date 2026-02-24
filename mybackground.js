@@ -1,10 +1,11 @@
-chrome.browserAction.onClicked.addListener(function(tab){
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-      chrome.tabs.sendMessage(tabs[0].id, {"action": "show"});
-  })
-  chrome.tabs.executeScript(null, {
-    file: 'content_script.js'
-  });
-
-
+chrome.action.onClicked.addListener(async function(tab) {
+  try {
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['content_script.js']
+    });
+  } catch (e) {
+    // Content script may already be injected
+  }
+  chrome.tabs.sendMessage(tab.id, { action: "show" });
 });
